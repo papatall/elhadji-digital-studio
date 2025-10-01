@@ -1,0 +1,200 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: "Message envoyé !",
+        description: "Je vous répondrai dans les plus brefs délais.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const contactInfo = [
+    {
+      icon: <Mail className="w-5 h-5" />,
+      label: "Email",
+      value: "contact@ehat.dev",
+      href: "mailto:contact@ehat.dev",
+    },
+    {
+      icon: <Phone className="w-5 h-5" />,
+      label: "Téléphone",
+      value: "+221 XX XXX XX XX",
+      href: "tel:+221XXXXXXXX",
+    },
+    {
+      icon: <MapPin className="w-5 h-5" />,
+      label: "Localisation",
+      value: "Dakar, Sénégal",
+      href: null,
+    },
+  ];
+
+  return (
+    <section id="contact" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          Contact
+        </h2>
+        <div className="w-20 h-1 gradient-primary mx-auto mb-4" />
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          Un projet en tête ? N'hésitez pas à me contacter !
+        </p>
+
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+          {/* Contact Info */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">
+                Restons en contact
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Que ce soit pour un projet, une collaboration ou simplement 
+                pour échanger, je serais ravi de discuter avec vous. 
+                Remplissez le formulaire ou contactez-moi directement.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {contactInfo.map((info, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-card rounded-lg shadow-card"
+                >
+                  <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="text-primary-foreground">{info.icon}</div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{info.label}</p>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        className="font-medium hover:text-primary transition-smooth"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="font-medium">{info.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="bg-card p-8 rounded-lg shadow-card space-y-6"
+          >
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium">
+                Nom complet
+              </label>
+              <Input
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Votre nom"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium">
+                Email
+              </label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="votre@email.com"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="subject" className="text-sm font-medium">
+                Sujet
+              </label>
+              <Input
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Sujet de votre message"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-sm font-medium">
+                Message
+              </label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Votre message..."
+                rows={5}
+                required
+              />
+            </div>
+
+            <Button
+              type="submit"
+              variant="hero"
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                "Envoi en cours..."
+              ) : (
+                <>
+                  <Send className="w-4 h-4 mr-2" />
+                  Envoyer le message
+                </>
+              )}
+            </Button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
