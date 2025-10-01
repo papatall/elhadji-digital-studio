@@ -62,11 +62,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-card rounded-lg overflow-hidden shadow-card hover:shadow-elegant transition-smooth group"
+              className="bg-card rounded-lg overflow-hidden shadow-card hover:shadow-elegant transition-smooth group animate-fade-up hover:-translate-y-2"
+              style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
             >
               {/* Project Header with Gradient */}
-              <div className={`h-40 bg-gradient-to-br ${project.gradient} relative`}>
+              <div className={`h-40 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-smooth" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </div>
 
               {/* Project Content */}
@@ -83,7 +85,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 text-xs font-medium bg-muted rounded-full"
+                      className="px-3 py-1 text-xs font-medium bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-smooth cursor-default"
                     >
                       {tag}
                     </span>
@@ -92,11 +94,11 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 pt-2">
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button variant="outline" size="sm" className="flex-1 hover:scale-105 transition-transform">
                     <Github className="w-4 h-4 mr-2" />
                     Code
                   </Button>
-                  <Button variant="default" size="sm" className="flex-1">
+                  <Button variant="default" size="sm" className="flex-1 hover:scale-105 transition-transform">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Demo
                   </Button>

@@ -91,13 +91,14 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-lg shadow-card hover:shadow-elegant transition-smooth group"
+              className="bg-card p-8 rounded-lg shadow-card hover:shadow-elegant transition-smooth group animate-scale-up hover:-translate-y-2"
+              style={{ animationDelay: `${index * 0.08}s`, animationFillMode: 'both' }}
             >
-              <div className="w-16 h-16 gradient-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
+              <div className="w-16 h-16 gradient-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-bounce">
                 <div className="text-primary-foreground">{service.icon}</div>
               </div>
 
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-smooth">{service.title}</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {service.description}
               </p>
@@ -106,9 +107,9 @@ const Services = () => {
                 {service.features.map((feature, featureIndex) => (
                   <li
                     key={featureIndex}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-smooth"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:animate-bounce-subtle" />
                     {feature}
                   </li>
                 ))}

@@ -29,14 +29,14 @@ const About = () => {
           <div className="w-20 h-1 gradient-primary mx-auto mb-12" />
 
           <div className="space-y-8">
-            <p className="text-lg text-muted-foreground text-center leading-relaxed">
+            <p className="text-lg text-muted-foreground text-center leading-relaxed animate-fade-up">
               Passionné par la technologie et l'innovation, je suis un développeur fullstack 
               et designer UI/UX basé à Dakar, au Sénégal. Actuellement à l'Orange Digital Center, 
               je combine mes compétences en développement web, design d'interfaces et marketing 
               digital pour créer des solutions numériques complètes et impactantes.
             </p>
 
-            <p className="text-lg text-muted-foreground text-center leading-relaxed">
+            <p className="text-lg text-muted-foreground text-center leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               Mon approche unique me permet de comprendre tous les aspects d'un projet digital, 
               du concept initial au déploiement final, en passant par l'expérience utilisateur 
               et la stratégie de communication.
@@ -47,9 +47,10 @@ const About = () => {
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-card p-6 rounded-lg shadow-card hover:shadow-elegant transition-smooth group"
+                  className="bg-card p-6 rounded-lg shadow-card hover:shadow-elegant transition-smooth group animate-scale-up hover:-translate-y-2"
+                  style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'both' }}
                 >
-                  <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce">
+                  <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-bounce">
                     <div className="text-primary-foreground">
                       {item.icon}
                     </div>

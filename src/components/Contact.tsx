@@ -73,7 +73,7 @@ const Contact = () => {
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-slide-in-left">
             <div>
               <h3 className="text-2xl font-semibold mb-6">
                 Restons en contact
@@ -89,9 +89,10 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-4 bg-card rounded-lg shadow-card"
+                  className="flex items-center gap-4 p-4 bg-card rounded-lg shadow-card hover:shadow-elegant transition-smooth group hover:-translate-x-2 animate-scale-up"
+                  style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'both' }}
                 >
-                  <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-bounce">
                     <div className="text-primary-foreground">{info.icon}</div>
                   </div>
                   <div>
@@ -115,7 +116,7 @@ const Contact = () => {
           {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-card p-8 rounded-lg shadow-card space-y-6"
+            className="bg-card p-8 rounded-lg shadow-card space-y-6 animate-slide-in-right hover:shadow-elegant transition-smooth"
           >
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-medium">

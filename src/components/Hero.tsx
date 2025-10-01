@@ -23,7 +23,7 @@ const Hero = () => {
             <img
               src={profileAvatar}
               alt="EL HADJI AMADOU TALL"
-              className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-elegant relative z-10 border-4 border-background"
+              className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-elegant relative z-10 border-4 border-background hover:scale-110 transition-smooth animate-float"
             />
           </div>
 

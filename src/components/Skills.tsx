@@ -151,21 +151,22 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="bg-card p-6 rounded-lg shadow-card hover:shadow-elegant transition-smooth group"
+              className="bg-card p-6 rounded-lg shadow-card hover:shadow-elegant transition-smooth group animate-scale-up hover:-translate-y-2"
+              style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'both' }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-bounce">
+                <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-bounce">
                   <div className="text-primary-foreground">{category.icon}</div>
                 </div>
-                <h3 className="text-xl font-semibold">{category.title}</h3>
+                <h3 className="text-xl font-semibold group-hover:text-primary transition-smooth">{category.title}</h3>
               </div>
               <ul className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
                   <li
                     key={skillIndex}
-                    className="flex items-center gap-2 text-muted-foreground"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-smooth"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:animate-bounce-subtle" />
                     {skill}
                   </li>
                 ))}
