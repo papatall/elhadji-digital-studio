@@ -146,18 +146,54 @@ const Admin = () => {
     }
   };
 
+  const [isSignUp, setIsSignUp] = useState(false);
+
+  const handleSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/admin`
+        }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Compte créé !",
+        description: "Vous pouvez maintenant vous connecter. N'oubliez pas d'ajouter le rôle admin dans Cloud.",
+      });
+      setIsSignUp(false);
+    } catch (error: any) {
+      toast({
+        title: "Erreur d'inscription",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-muted/30">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle>Connexion Admin</CardTitle>
+            <CardTitle>{isSignUp ? "Créer un compte" : "Connexion Admin"}</CardTitle>
             <CardDescription>
-              Connectez-vous pour accéder aux messages de contact
+              {isSignUp 
+                ? "Créez votre compte pour accéder à l'interface admin"
+                : "Connectez-vous pour accéder aux messages de contact"
+              }
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleLogin} className="space-y-4">
+            <form onSubmit={isSignUp ? handleSignUp : handleLogin} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
                   Email
@@ -182,17 +218,29 @@ const Admin = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
+                  minLength={6}
                 />
               </div>
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Connexion...
+                    {isSignUp ? "Création..." : "Connexion..."}
                   </>
                 ) : (
-                  "Se connecter"
+                  isSignUp ? "Créer le compte" : "Se connecter"
                 )}
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="w-full"
+                onClick={() => setIsSignUp(!isSignUp)}
+              >
+                {isSignUp 
+                  ? "Déjà un compte ? Se connecter"
+                  : "Pas de compte ? S'inscrire"
+                }
               </Button>
             </form>
           </CardContent>
