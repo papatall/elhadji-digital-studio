@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import profileAvatar from "@/assets/profile-avatar.jpg";
+import maPhoto from "../assets/papa.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -21,7 +21,7 @@ const Hero = () => {
           <div className="relative">
             <div className="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-30 animate-pulse" />
             <img
-              src={profileAvatar}
+              src={maPhoto}
               alt="EL HADJI AMADOU TALL"
               className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-elegant relative z-10 border-4 border-background hover:scale-110 transition-smooth animate-float"
             />
