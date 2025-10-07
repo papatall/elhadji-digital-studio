@@ -58,13 +58,13 @@ const Contact = () => {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
       value: "elhadjiamadoutall85@gmail.com",
-      href: "mailto:contact@ehat.dev",
+      href: "elhadjiamadoutall85@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: "Téléphone",
       value: "+221 784541151",
-      href: "tel:+221XXXXXXXX",
+      href: "tel:+221784541151",
     },
     {
       icon: <MapPin className="w-5 h-5" />,
