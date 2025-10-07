@@ -69,7 +69,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Contact</h4>
             <div className="space-y-2 text-secondary-foreground/80">
               <p>📍 Dakar, Sénégal</p>
-              <p>📧 elhadjiamadoutall85@gmail.com</p>
+              <p><a href="mailto:elhadjiamadoutall85@gmail.com">elhadjiamadoutall85@gmail.com</a></p>
               <p>🏢 Orange Digital Center</p>
             </div>
           </div>
