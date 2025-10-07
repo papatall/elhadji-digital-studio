@@ -4,45 +4,53 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "Plateforme E-Commerce Moderne",
+      title: "gestion de cargaison",
       description:
         "Application e-commerce complète avec panier, paiement sécurisé, gestion des stocks et tableau de bord administrateur. Développée avec React, Node.js et PostgreSQL.",
-      tags: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker"],
+      tags: ["TYPESCRIPT", "Node.js", "PostgreSQL", "Stripe", "Docker"],
+      code: "https://github.com/amadoutall023/projetCargai",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
-      title: "Application de Gestion de Projet",
+      title: "Application CLONE WHATSAPP",
       description:
         "Outil collaboratif de gestion de projet avec tableaux Kanban, suivi du temps, et reporting avancé. Interface intuitive et responsive.",
       tags: ["Next.js", "TypeScript", "Prisma", "AWS", "CI/CD"],
+      code: "https://github.com/amadoutall023/projet-whatsapp",
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      title: "Dashboard Analytics & Monitoring",
+      title: "CLONE MAXIT",
       description:
         "Tableau de bord temps réel pour visualisation de données avec graphiques interactifs, alertes automatiques et exports personnalisables.",
       tags: ["React", "D3.js", "Python", "Redis", "Kubernetes"],
+      code: "https://github.com/amadoutall023/maxita",
       gradient: "from-orange-500 to-red-500",
     },
     {
-      title: "Design System & Component Library",
+      title: "GESTION DE PERSONNEL A ORANGE DIGITAL CENTER",
       description:
         "Bibliothèque de composants réutilisables avec documentation complète, thème personnalisable et accessibilité WCAG 2.1 AA.",
       tags: ["React", "Storybook", "Figma", "TypeScript", "CSS"],
+      code: "https://github.com/amadoutall023/ges-app-odc",
       gradient: "from-green-500 to-emerald-500",
     },
     {
-      title: "Application Mobile Hybride",
+      title: "application de gestion de salariés",
       description:
         "Application mobile cross-platform avec fonctionnalités offline, notifications push et synchronisation cloud. Design moderne et performant.",
       tags: ["React Native", "Firebase", "Redux", "Jest", "CI/CD"],
+      code: "https://github.com/amadoutall023/projetEntrepriseFrontend-2/tree/main/projetEntrepriseFrontend",
+      demo: "https://ecommerce-demo.vercel.app",
       gradient: "from-indigo-500 to-blue-500",
     },
     {
-      title: "Site Web d'Entreprise",
+      title: "Site Web E commerce",
       description:
         "Site vitrine moderne avec CMS personnalisé, blog intégré, optimisation SEO avancée et analytics. Temps de chargement optimisé.",
       tags: ["Next.js", "Headless CMS", "SEO", "Google Analytics", "Vercel"],
+      code: "https://github.com/ton-projet-ecommerce",
+      demo: "https://tatrend.shop",
       gradient: "from-yellow-500 to-orange-500",
     },
   ];
@@ -93,15 +101,41 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3 pt-2">
-                  <Button variant="outline" size="sm" className="flex-1 hover:scale-105 transition-transform">
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
-                  <Button variant="default" size="sm" className="flex-1 hover:scale-105 transition-transform">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
-                  </Button>
+          <div className="flex gap-3 pt-2">
+                  {project.code && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 hover:scale-105 transition-transform"
+                      asChild
+                    >
+                      <a
+                        href={project.code}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
+                  {project.demo && (
+                    <Button
+                      variant="default"
+                      size="sm"
+                      className="flex-1 hover:scale-105 transition-transform"
+                      asChild
+                    >
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
