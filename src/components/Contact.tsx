@@ -83,6 +83,7 @@ const Contact = () => {
         <div className="w-20 h-1 gradient-primary mx-auto mb-4" />
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Un projet en tête ? N'hésitez pas à me contacter !
+          merci de  copier  l'email ou de m'envoyer un message via le formulaire 
         </p>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
