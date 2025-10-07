@@ -6,7 +6,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: <Github className="w-5 h-5" />, href: "https://github.com/amadoutall023", label: "GitHub" },
     { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/el-hadji-amadou-tall-678b5833a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", label: "LinkedIn" },
-    { icon: <Mail className="w-5 h-5" />, href: "elhadjiamadoutall85@gmail.com", label: "Email" },
+    { icon: <Mail className="w-5 h-5" />, href: "mailto:elhadjiamadoutall85@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
