@@ -35,6 +35,14 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-muted-foreground">
               Développeur Fullstack • UI/UX Designer • Marketer Digital
             </p>
+                 <p className="text-xl md:text-2xl text-muted-foreground">
+              référence:  birane baila wane @ Orange Digital Center 
+            </p>
+             <p className="text-xl md:text-2xl text-muted-foreground">tel:77 766 95 95 </p>
+             <p className="text-xl md:text-2xl text-muted-foreground">
+              référence:  Aly Tall Niang @ Orange Digital Center
+            </p>
+            <p className="text-xl md:text-2xl text-muted-foreground"> tel: 77 182 54 14</p>
             <p className="text-lg md:text-xl gradient-primary bg-clip-text text-transparent font-semibold">
               Créer, innover et développer des solutions digitales impactantes
             </p>
